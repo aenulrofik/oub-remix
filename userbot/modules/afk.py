@@ -171,15 +171,15 @@ async def mention_afk(mention):
                     wday = now + datetime.timedelta(days=-days)
                     afk_since = wday.strftime('%A')
             elif hours > 1:
-                afk_since = f"`{int(hours)}h {int(minutes)}m`"
+                afk_since = f"`{int(hours)}Jam {int(minutes)}Menit`"
             elif minutes > 0:
-                afk_since = f"`{int(minutes)}m {int(seconds)}s`"
+                afk_since = f"`{int(minutes)}Menit {int(seconds)}Detik`"
             else:
-                afk_since = f"`{int(seconds)}s`"
+                afk_since = f"`{int(seconds)}Detik`"
             if mention.sender_id not in USERS:
                 if AFKREASON:
-                    await mention.reply(f"I'm AFK since {afk_since}.\
-                        \nReason: `{AFKREASON}`")
+                    await mention.reply(f"Tunggu bentar, Lagi AFK sejak {afk_since}.\
+                        \nPesan: `{AFKREASON}`")
                 else:
                     await mention.reply(str(choice(AFKSTR)))
                 USERS.update({mention.sender_id: 1})
